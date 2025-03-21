@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Conditioning Inspection Checklist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-6 rounded-lg">
+<img src="GACL.jpeg">
+
+    <style>
+       img{
+        margin: auto;
+       } 
+    </style>
+    <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-8">
+        <h1 class="text-2xl font-semibold text-blue-600 text-center mb-6">DAILY INSPECTION SHEET - VAC, TIA</h1>
+        <div class="mb-4">
+            <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Date:</label>
+            <input type="date" id="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="inspector" class="block text-gray-700 text-sm font-bold mb-2">Inspector:</label>
+            <input type="text" id="inspector" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="shift-leader" class="block text-gray-700 text-sm font-bold mb-2">Shift Leader:</label>
+            <input type="text" id="shift-leader" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-6">
+            <label for="comment" class="block text-gray-700 text-sm font-bold mb-2">Comment:</label>
+            <textarea id="comment" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+        </div>
+
+        <table class="min-w-full table-auto rounded-lg shadow-md">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="px-4 py-2 text-left text-gray-600 font-semibold uppercase">Unit #</th>
+                    <th class="px-4 py-2 text-left text-gray-600 font-semibold uppercase">Location</th>
+                    <th class="px-4 py-2 text-left text-gray-600 font-semibold uppercase">Ambient Air Temp (°C)</th>
+                    <th class="px-4 py-2 text-left text-gray-600 font-semibold uppercase">Supply Air Temp (°C)</th>
+                    <th class="px-4 py-2 text-left text-gray-600 font-semibold uppercase">Return Air Temp (°C)</th>
+                    <th class="px-4 py-2 text-left text-gray-600 font-semibold uppercase">Air Quality (ppm)</th>
+                    <th class="px-4 py-2 text-left text-gray-600 font-semibold uppercase">Supply Fan Status</th>
+                </tr>
+            </thead>
+            <tbody class="text-gray-700">
+                <tr>
+                    <td class="px-4 py-2">1</td>
+                    <td class="px-4 py-2">Arrivals</td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2">
+                        <select class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            <option>Running</option>
+                            <option>Not Running</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2">2</td>
+                    <td class="px-4 py-2">Domestic</td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2">
+                        <select class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            <option>Running</option>
+                            <option>Not Running</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2">3</td>
+                    <td class="px-4 py-2">International</td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2">
+                        <select class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            <option>Running</option>
+                            <option>Not Running</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2">4</td>
+                    <td class="px-4 py-2">Check-in</td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2">
+                        <select class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            <option>Running</option>
+                            <option>Not Running</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-4 py-2">5</td>
+                    <td class="px-4 py-2">Multi Purpose</td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2"><input type="number" class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></td>
+                    <td class="px-4 py-2">
+                        <select class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            <option>Running</option>
+                            <option>Not Running</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-6" onclick="saveWebpageAsDocument()">
+            Save as PDF
+        </button>
+        <script>
+        function saveWebpageAsDocument(filename = 'HVAC.PDF') {
+  const pageContent = document.documentElement.outerHTML; // Get the entire HTML content
+
+  const blob = new Blob([pageContent], { type: 'PDF' }); // Create a Blob
+
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob); // Create a URL for the Blob
+  link.download = filename; // Set the filename for download
+
+  link.style.display = 'none'; // Hide the link
+  document.body.appendChild(link); // Add it to the body
+
+  link.click(); // Trigger the download
+
+  document.body.removeChild(link); // Remove the link after download
+  URL.revokeObjectURL(link.href); // Clean up the URL object
+}
+        </script>
+
+        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-6" onclick="printPage()">
+            Print this page
+        </button>
+        <script>
+function printPage() {
+      window.print();
+    }
+    </script>
+    </div>
+    <script>
+        document.getElementById('date').valueAsDate = new Date();
+    </script>
+</body>
+</html>
